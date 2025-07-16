@@ -1,0 +1,567 @@
+@font-face {
+  font-family: 'Clarendon';
+  src:url('./fonts/Clarendon\ Bold.woff2') format('woff2'),
+      url('./fonts/Clarendon\ Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  max-width: 1440px;
+  background-color: #ffffff;
+  margin: 0 auto; /* Centra horizontalmente */
+  padding: 3rem;
+  font-family: 'Clarendon', sans-serif; 
+}
+
+.busqueda-items .lupa{
+width: 40px;
+}
+.imagen-card{
+width: 500px;
+}
+.seccion-linea-trending {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.lineadetiempo, .destacado {
+  margin: 0 auto;
+}
+.lineadetiempo:hover {
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.busqueda-items li a{
+  color: black;
+  text-decoration: none;
+  font-family: 'Clarendon', serif;  
+}
+.busqueda-items li a:hover {
+  color: #A4161A;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.card-lineatiempo {
+  background-color: black;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-contenido {
+  border: 2px solid white;
+  position: relative;
+  overflow: hidden;
+}
+
+.imagen-lineatiempo {
+  width: 100%;
+  display: block;
+}
+
+.overlay-lineatiempo {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+  text-align: center;
+  padding: 15px 0;
+  box-sizing: border-box;
+}
+
+.texto-lineatiempo {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+}
+
+.btn-lineatiempo {
+  display: inline-block;
+  background-color: #D8232A;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.btn-lineatiempo:hover {
+  border: 2px solid #D8232A;
+  color: #D8232A;
+  background-color: black;
+}
+.lineadetiempo:hover .cartel,
+.lineadetiempo:hover .contenido-linea {
+  color: white;
+}
+.containerheader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  font-family: 'Clarendon', serif;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --- Derecha: De dónde nos leés --- */
+.header-localizacion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.opciones {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.opciones button,
+.opciones a.btn {
+  background-color: #A4161A;
+  color: white;
+  border-radius: 0%;
+  font-weight: normal;
+  border: none;
+  text-decoration: none; /* para que los enlaces no tengan subrayado */
+  display: inline-flex;  /* para que se comporten como botones */
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem; /* igual que btn-sm */
+  line-height: 1.5;
+}
+
+.opciones button:hover,
+.opciones a.btn:hover {
+  border: 2px solid #A4161A;
+  color: #A4161A;
+  text-decoration: none;
+  background-color: transparent;
+}
+/* --- CENTRO: LOGO --- */
+.header-logo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Izquierda: Ingresar/Subscribite --- */
+.header-ingresar {
+  display: flex;
+  gap: 10px;
+}
+
+.header-ingresar .btn-outline-secondary:first-child {
+  border: 2px solid #A4161A;
+  border-radius: 0%;
+  color: #A4161A;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+.header-ingresar .btn-outline-secondary:first-child:hover {
+  background-color: #A4161A;
+  color: white;
+}
+
+.header-ingresar .btn-outline-secondary:last-child {
+  border: none;
+  color: #A4161A;
+  text-decoration: underline;
+  background: none;
+}
+.header-ingresar .btn-outline-secondary:last-child:hover {
+  color: gray;
+}
+/* --- HEADER DE BÚSQUEDA --- */
+.header-busqueda {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.busqueda-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0.3%;
+}
+
+.busqueda-items li {
+  padding: 10px 15px;
+   margin: 0 40px;
+  position: relative;
+  font-weight: normal;
+  font-family: 'Clarendon', serif;
+}
+.busqueda-items li:hover {
+  color: #A4161A;
+  cursor: pointer;
+}
+
+/* Separador (stroke) vertical entre ítems, excepto el último */
+.busqueda-items li:not(:last-child, :first-child)::after {
+   margin-left: -2rem;
+  margin-right: -2rem;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -1%;
+  height: 100%;
+  width: 1px;
+  background-color: black;
+}
+
+/* Imagen lupa con tamaño consistente */
+.lupa {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  
+}
+
+/* Botón estilo h1 */
+.archivo-toggle {
+  font-size: 2rem;
+  font-family: 'Clarendon', serif;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-weight: bold;
+  padding: 0;
+}
+
+/* Botón activo */
+.dropdown.show .archivo-toggle {
+  color: #A4161A;
+}
+
+/* Menú dropdown */
+.archivo-menu {
+  background-color: black;
+  border: none;
+  padding: 0;
+  margin-top: 0.2rem;
+  min-width: 220px;
+  animation: dropdownFade 0.3s ease forwards;
+}
+
+/* Ítems */
+.archivo-menu .dropdown-item {
+  color: white;
+  font-family: 'Clarendon', serif;
+  padding: 10px 15px;
+  transition: color 0.3s;
+}
+
+.archivo-menu .dropdown-item:hover {
+  color: #A4161A;
+  background-color: transparent;
+}
+
+/* Línea separadora blanca */
+.dropdown-divider-white {
+  margin: 0;
+  border-color: white;
+  opacity: 1;
+}
+.lineadetiempo, .destacado {
+  width: 25rem;
+  margin: 0 1rem;
+}
+.seccion-linea-trending {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem auto;
+}
+
+/* LINEA DE TIEMPO */
+.lineadetiempo {
+  width: 25rem;
+  height: 32rem;
+  border: black 2px solid;
+  border-radius: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: #fff;
+  
+}
+.lineadetiempo h1,
+.lineadetiempo p {
+  width: 50%;
+  margin: 0 auto; /* centrado */
+  text-align: center;
+  position: relative;
+  top: -1rem; /* ajusta la posición vertical */
+
+}
+.titulo-noticia-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.titulo-noticia-link:hover .titulo-noticia {
+  color: #A4161A;
+  cursor: pointer;
+}
+.imagen-card {
+  width: 24.9rem;
+  height: -3rem;
+  object-fit: cover;
+  border: black 1px solid;
+}
+
+.cartel {
+  background-color: #D8232A;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 0;
+  margin: 0;
+}
+
+.contenido-linea {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+.noticias {
+  text-align: left;
+}
+
+
+/* TRENDING */
+.destacado {
+  width: 25rem;
+}
+
+
+.cartel-trending {
+  background-color: #D8232A;
+  color: white;
+   max-width: 50%; /* solo ocupa la mitad */
+   text-align: left; /* alineado a la izquierda */
+  font-weight: bold;
+  padding: 6px 12px;
+  font-size: 1.3rem;
+}
+
+.archivo-destacado {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.item-trending {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.img-trending {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.texto-trending h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.texto-trending p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.noticias h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.cartel {
+  background-color: #D8232A;
+  color: white;
+  text-align: left;
+  padding: 4px 8px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.texto {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.imagen-lista {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.stroke-full {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+.strokefooter{
+  border: 1px solid black;
+}
+.strokefooterdos{
+  width: 80%;
+ 
+}
+.stroke-half {
+  width: 90%;
+  height: 1px;
+  background-color: black;
+}
+
+.btn-vermas {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+  border-radius: 0;
+  padding: 0.5rem 1.5rem;
+  font-family: 'Clarendon', serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  top: -1.2em; /* lo sube sobre la línea */
+}
+
+.btn-vermas:hover {
+  background-color: black;
+  color: white;
+}
+.bg-black {
+  background-color: #000 !important;
+}
+
+.text-red {
+  color: #A4161A !important;
+}
+
+.btn-suscribite {
+  background-color: #A4161A;
+  color: white;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-suscribite:hover {
+  background-color: #7f1115;
+}
+
+.btn-link.text-red:hover {
+  color: #7f1115;
+}
+.stroke-vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background-color: black;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 1;
+  z-index: 1;
+    padding: 0 !important;
+  margin: 0 !important;
+}
+#email-feedback {
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.titulo-noticia:hover {
+  color: #A4161A;
+  cursor: pointer;
+}
+.stroke-footer-ajustadaseguinos {
+  width: 80%;
+  height: 2px;
+  background-color: black;
+  margin: 0.5rem 0;
+}
+.stroke-footer-ajustadalegal {
+  width: 50%;
+  height: 2px;
+  background-color: black;
+  margin: 0.5rem 0;
+}
+.icono-red {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+.redes-sociales li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+.col-md-5.seguinos-derecha {
+  padding-left: 15rem; 
+}
+.redes-sociales li,
+.legal-lista li {
+  font-size: 1.2rem; 
+}
+.stroke-full-footer {
+  width: 100%;
+  height: 3px; 
+  background-color: black;
+}
+.stroke-full-corto{
+  width: 80%;
+  height: 2px;
+  background-color: black;
+  margin: 0.5rem 0;
+}
+.texto-trending p:hover {
+  color: #D8232A;
+  cursor: pointer;
+}
+.opciones .btn.activo {
+  color: #A4161A;
+  border: 2px solid #A4161A;;
+  background-color: transparent;
+}
+button.archivo-toggle.dropdown-toggle:hover {
+  color: #A4161A;
+  background-color: transparent;
+}

@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'Clarendon';
+  src:url('./fonts/Clarendon\ Bold.woff2') format('woff2'),
+      url('./fonts/Clarendon\ Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+.container-lineatiempo {
+  background-color: #A4161A;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  padding: 0;
+   overflow: hidden;
+  box-sizing: border-box;
+}
+
+.sidebar-tira {
+  background-color: black;
+  width: 40%;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; /* Para que las columnas ocupen todo el alto */
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tira-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.columnas-tira {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.columna-bordes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+  height: 100%;
+}
+
+.tira-borde {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+.contenido-tira {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+   overflow-y: auto;
+  max-height: 200vh; /* o la altura que prefieras */
+}
+
+.tira-portada {
+  width: 15rem;
+  height: 19rem;
+  object-fit: cover;
+  border: 2px solid white;
+  margin: 15px 10px 0 0;
+}
+
+.tira-texto {
+  background-color: #D8232A;
+  color: white;
+  padding: 8px 0;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
+   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 15rem; /* igual al ancho de la portada */
+  box-sizing: border-box;
+}
+
+.contenido-lineatiempo {
+  width: 70%;
+  color: white;
+  padding: 20px;
+}
+.columna-izquierda {
+  margin-left: 0.5rem;
+}
+
+.columna-derecha {
+  margin-right: 0.5rem;
+}
+.titulo-archivo {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 2rem auto 1rem auto; /* mismo ancho del container rojo */
+}
+
+.titulo-archivo h2 {
+  color: black;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 1rem; /* espacio entre el texto y los strokes */
+  flex-shrink: 0;
+}
+
+.stroke-rojo-izq {
+  flex: 0 0 5%;
+  height: 1px;
+  background-color: #A4161A;
+}
+
+.stroke-rojo-der {
+  flex: 1;
+  height: 1px;
+  background-color: #A4161A;
+}
+.tira-texto:hover {
+  background-color: black;
+  color: #D8232A;
+  border: 2px solid #D8232A;
+  cursor: pointer;
+}
+.portada-primernumero:hover {
+  content: url('img/1998.png');
+}
+.portada-cienhits:hover {
+  content: url('img/2002.png');
+}
+.portada-expansionregional:hover {
+  content: url('img/2003.png');
+}
+.portada-cincuentaaños:hover {
+  content: url('img/2006.png');
+}
+.portada-decimoaniversario:hover {
+  content: url('img/2008.png');
+}
+.portada-bookazine:hover {
+  content: url('img/2012.png');
+}
+.portada-bookazineveinticinco:hover {
+  content: url('img/2023.png');
+}
+#contenido-lineatiempo {
+  width: 80%;   /* O incluso 70% si querés más angosto */
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 11.5rem; /* Separación del borde derecho (donde está el negro) */
+}
+#anio-lineatiempo {
+  font-size: 1.8rem;
+  color: white;
+  border: 1px solid white;
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  font-family: 'Clarendon', sans-serif; 
+}
+
+#titulo-lineatiempo {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+#texto-lineatiempo {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-right: 5rem;
+  font-family: 'Georgia', serif;
+}
+.portada-activa img:hover,
+.portada-activa .tira-texto:hover {
+  filter: brightness(0.7);
+  color: #D8232A;
+  border: 1px solid #ffffff;
+}
+.tira-portada.activo-portada {
+  border: 2px solid #ffffff;
+  filter: brightness(80%);
+}
+
+.tira-texto.activo-texto {
+  color: #D8232A;
+  background-color: black;
+  border: 1px solid #D8232A;
+}
+contenedor-vinilo {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+}
+
+.vinilo-wrapper {
+  width: 850px;   /* Ajustalo a lo que necesites */
+  height: 850px;  /* Debe ser cuadrado */
+  animation: rotarVinilo 5s linear infinite;
+  transform-origin: center center;
+  margin-left: -72%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#vinilo-rotativo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+@keyframes rotarVinilo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
